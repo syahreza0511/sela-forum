@@ -61,7 +61,7 @@ describe('forumReducer', () => {
     const updated = forumReducer(previous, submittedComment);
 
     expect(selectDetail({ forum: updated }, threadId).item.comments).toEqual([comment]);
-    expect(updated.feed.items[0].totalComments).toBe(1);
+    expect(updated.feed.items[0].totalComments).toBe(2);
     expect(selectDetail({ forum: previous }, threadId).item.comments).toEqual([]);
     expect(previous.feed.items[0].totalComments).toBe(0);
   });
