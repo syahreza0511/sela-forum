@@ -60,10 +60,9 @@ Buka alamat yang dicetak Storybook, biasanya `http://localhost:6006`. Build stat
 
 Repo publik [sela-forum](https://github.com/syahreza0511/sela-forum) memakai `master` sebagai branch utama. GitHub Actions memasok status `Validate Sela` yang diwajibkan sebelum merge. Pembatasan tersebut juga berlaku untuk admin agar pemeriksaan gagal tetap menahan merge.
 
-1. Jalankan workflow di repo Sela untuk menampilkan check `Validate Sela`. Terapkan proteksi pada `master` dengan PR wajib dan check tersebut sebagai syarat merge.
-2. Hubungkan repo ke proyek Vercel dengan `master` sebagai production branch. Gunakan preset Vite, perintah `npm run build`, dan output `dist`. Merge PR yang lulus memicu deployment produksi.
-3. Pada branch uji terpisah, buat satu kondisi tes gagal dan ambil bukti CI merah dan proteksi merge. Pulihkan tes, tunggu CI hijau, lalu ambil buktinya. Masukkan hanya versi tes yang sudah benar ke `master`.
-4. Buka URL produksi dan pastikan aplikasi bisa memuat forum. Masukkan URL itu ke catatan submission dan sertakan tiga screenshot asli dalam ZIP.
+Pada [PR #1](https://github.com/syahreza0511/sela-forum/pull/1), satu ekspektasi reducer sengaja diubah di branch uji. [Run CI merah](https://github.com/syahreza0511/sela-forum/actions/runs/45302406370) mencatat kegagalan tes dan aturan `master` menahan merge. Setelah ekspektasi dipulihkan, [run CI hijau](https://github.com/syahreza0511/sela-forum/actions/runs/45303313691) meluluskan `Validate Sela`.
+
+Proyek Vercel memakai preset Vite, Node.js 24, `npm ci`, `npm run build`, dan output `dist`. Dengan `master` sebagai production branch pada integrasi Git, merge PR yang lulus memicu deployment ke [domain produksi Sela](https://sela-forum.vercel.app/).
 
 | Bukti dalam ZIP | Yang harus tampak |
 | --- | --- |
