@@ -31,10 +31,11 @@ npm run build
 | --- | --- | --- |
 | Reducer (5) | [forum.reducer.test.js](src/state/forum.reducer.test.js) | Status loading saat mencoba lagi, penyimpanan feed, isolasi error detail per thread, sinkronisasi jumlah komentar, dan pencegahan duplikasi |
 | Thunk (5) | [forum.thunk.test.js](src/state/forum.thunk.test.js) | Pengambilan feed dan profil penulis, penanganan error, pencegahan request yang sedang berjalan, pemeriksaan sesi dan format payload penerbitan, serta rollback vote |
-| Komponen React (5) | [FeedPage.test.jsx](src/pages/FeedPage.test.jsx) | Metadata thread, pemilihan kategori, pencarian judul, reset hasil kosong, dan indikator loading |
+| Komponen React `FeedPage` (5) | [FeedPage.test.jsx](src/pages/FeedPage.test.jsx) | Metadata thread, pemilihan kategori, pencarian judul, reset hasil kosong, dan indikator loading |
+| Komponen React `RankList` (2) | [RankList.test.jsx](src/components/RankList.test.jsx) | Nomor urut, nama pengguna, dan skor dengan format Indonesia pada leaderboard penuh dan versi ringkas |
 | E2E (4) | [forum.spec.js](e2e/forum.spec.js) | Login dan pemulihan sesi, login gagal, pendaftaran sampai upvote, serta filter/pencarian/leaderboard |
 
-Keterangan skenario tersedia pada tiap berkas tes. Tes reducer memeriksa hasil fungsi reducer ketika menerima action. Tes thunk memakai store asli dan mengganti respons metode API dengan fixture. Tes komponen merender `FeedPage` bersama Redux Provider dan router, lalu memeriksa tampilan serta interaksi pengguna.
+Keterangan skenario tersedia pada tiap berkas tes. Tes reducer memeriksa hasil fungsi reducer ketika menerima action. Tes thunk memakai store asli dan mengganti respons metode API dengan fixture. Tes `FeedPage` merender halaman bersama Redux Provider dan router. Tes `RankList` merender komponen leaderboard dengan data contoh dan memeriksa informasi peringkat yang terlihat.
 
 Pada E2E, browser benar-benar mengisi form, mengirim permintaan, memeriksa tampilan, berpindah rute, dan melakukan reload. Playwright mencegat permintaan HTTP ke Dicoding Forum API untuk menyediakan respons login, profil, dan forum yang konsisten. Aplikasi yang dibuka normal tetap memakai Dicoding Forum API asli.
 
@@ -74,11 +75,11 @@ Rujukan pengaturan tersedia di [GitHub branch protection](https://docs.github.co
 
 ## Draf catatan submission
 
-Ganti placeholder setelah URL produksi sudah diverifikasi dan ketiga screenshot tersedia di ZIP.
-
-> Halo Kak Reviewer, ini submission akhir saya untuk proyek Sela, aplikasi forum diskusi berbasis React dan Redux. Saya menambahkan pengujian reducer, thunk, komponen, dan alur login di browser. Saya juga menambahkan Storybook untuk melihat beberapa keadaan komponen secara terpisah.
+> Halo Kak Reviewer, saya mengirim revisi proyek Sela. Pengujian React sekarang mencakup dua komponen, yaitu FeedPage dan RankList. Bukti CI gagal, CI lulus, dan proteksi branch tersedia sebagai tiga file PNG di folder screenshot pada ZIP revisi.
 >
-> Aplikasi bisa dibuka di [URL Vercel produksi yang sudah diverifikasi]. Bukti CI gagal, CI lulus, dan proteksi branch ada di folder `screenshot/` dalam ZIP. Terima kasih, Kak.
+> URL Vercel: https://sela-forum.vercel.app/
+>
+> Terima kasih, Kak.
 
 ## Fitur
 
