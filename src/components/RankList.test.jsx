@@ -27,7 +27,7 @@ describe('RankList', () => {
     expect(rows).toHaveLength(2);
     expect(first.getByText('1', { exact: true })).toBeVisible();
     expect(first.getByText('Maya Putri')).toBeVisible();
-    expect(first.getByText('1.450')).toHaveTextContent('1.451 poin');
+    expect(first.getByText('1.450')).toHaveTextContent('1.450 poin');
     expect(second.getByText('2', { exact: true })).toBeVisible();
     expect(second.getByText('Raka Akbar')).toBeVisible();
     expect(second.getByText('260')).toHaveTextContent('260 poin');
