@@ -58,7 +58,7 @@ Buka alamat yang dicetak Storybook, biasanya `http://localhost:6006`. Build stat
 
 [Workflow CI](.github/workflows/ci.yml) disiapkan untuk PR menuju `master` dan push ke `master`. Job `Validate Sela` memakai Node.js 24, memasang dependensi dengan lockfile, menjalankan lint dan Vitest, memasang Chromium, menjalankan Playwright, lalu membangun aplikasi dan Storybook.
 
-Tahap ini disiapkan secara lokal. Status CI pada PR, aturan branch protection, deployment Vercel, dan screenshot GitHub perlu dihasilkan pada repo yang dituju.
+Repo publik [sela-forum](https://github.com/syahreza0511/sela-forum) memakai `master` sebagai branch utama. GitHub Actions memasok status `Validate Sela` yang diwajibkan sebelum merge. Pembatasan tersebut juga berlaku untuk admin agar pemeriksaan gagal tetap menahan merge.
 
 1. Jalankan workflow di repo Sela untuk menampilkan check `Validate Sela`. Terapkan proteksi pada `master` dengan PR wajib dan check tersebut sebagai syarat merge.
 2. Hubungkan repo ke proyek Vercel dengan `master` sebagai production branch. Gunakan preset Vite, perintah `npm run build`, dan output `dist`. Merge PR yang lulus memicu deployment produksi.
