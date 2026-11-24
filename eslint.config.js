@@ -4,7 +4,7 @@ import hooks from 'eslint-plugin-react-hooks';
 import globals from 'globals';
 
 export default [
-  { ignores: ['dist/**'] },
+  { ignores: ['dist/**', 'storybook-static/**', 'test-results/**', 'playwright-report/**'] },
   {
     files: ['**/*.{js,jsx}'],
     languageOptions: {

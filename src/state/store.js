@@ -15,11 +15,15 @@ const requests = createSlice({
   },
 });
 
-export const store = configureStore({
-  reducer: {
-    forum: forumReducer,
-    session: sessionReducer,
-    votes: votesReducer,
-    requests: requests.reducer,
-  },
-});
+export function createAppStore() {
+  return configureStore({
+    reducer: {
+      forum: forumReducer,
+      session: sessionReducer,
+      votes: votesReducer,
+      requests: requests.reducer,
+    },
+  });
+}
+
+export const store = createAppStore();
